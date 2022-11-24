@@ -1,0 +1,9 @@
+<div class="calculator-container">
+  <label></label>
+  <input #inputOne />
+  <span>+</span>
+  <label></label>
+  <input #inputTwo />
+  <span style="margin-left: 0.8rem;">Result: {{ calculationResult }}</span>
+  <button (click)="calculate(inputOne.value, inputTwo.value)">Calculate</button>
+</div>

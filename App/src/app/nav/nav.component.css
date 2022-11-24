@@ -1,0 +1,25 @@
+.navbar-container {
+  width: 100vw;
+  background-color: gray;
+}
+
+.menu-container {
+  margin: auto;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+}
+
+.menu-item {
+  margin: 0 1rem;
+  list-style: none;
+  color: orange;
+  font-size: 2rem;
+}
+
+.menu-item:hover {
+  transition: color 0.2s;
+  cursor: pointer;
+  color: white;
+}
