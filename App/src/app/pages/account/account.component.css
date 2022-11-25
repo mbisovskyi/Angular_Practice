@@ -1,0 +1,10 @@
+.account-container {
+    width: 80%;
+    margin: auto;
+}
+
+p {
+    color: red;
+    font-size: 5rem;
+    text-align: center;
+}

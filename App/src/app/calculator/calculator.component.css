@@ -1,5 +1,8 @@
 .calculator-container {
+  width: 80%;
+  margin: auto;
   display: flex;
+  justify-content: center;
   align-items: center;
   padding: 1rem;
 }
@@ -9,7 +12,6 @@ input {
   border: 1px solid green;
   padding: 0.1rem 0.5rem 0;
   margin: 0 0.2rem;
-  width: 2rem;
 }
 
 button {

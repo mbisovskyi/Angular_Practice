@@ -11,14 +11,15 @@
   align-self: center;
 }
 
-.menu-item {
+a {
+  text-decoration: none;
   margin: 0 1rem;
   list-style: none;
   color: orange;
   font-size: 2rem;
 }
 
-.menu-item:hover {
+a:hover {
   transition: color 0.2s;
   cursor: pointer;
   color: white;
