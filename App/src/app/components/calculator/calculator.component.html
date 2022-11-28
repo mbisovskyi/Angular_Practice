@@ -4,10 +4,11 @@
   <span>+</span>
   <label></label>
   <input #inputTwo />
-  <span style="margin-left: 0.8rem"
-    >Result: <span style="color: red">{{ plusOrConcatResult }}</span></span
-  >
+  
   <button (click)="addNumsOrConcatStrings(inputOne.value, inputTwo.value)">
     Get result
   </button>
 </div>
+<p style="margin-left: 0.8rem; width: 30%; margin: auto; text-align: left;"
+    >Result: <span style="color: red">{{ plusOrConcatResult }}</span></p
+  >

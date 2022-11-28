@@ -4,11 +4,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
-import { NavComponent } from './nav/nav.component';
-import { CalculatorComponent } from './calculator/calculator.component';
+import { NavComponent } from './components/nav/nav.component';
+import { CalculatorComponent } from './components/calculator/calculator.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AccountComponent } from './pages/account/account.component';
 import { HomeComponent } from './pages/home/home.component';
+import { SideMenuComponent } from './components/side-menu/side-menu.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { HomeComponent } from './pages/home/home.component';
     NavComponent,
     CalculatorComponent,
     AccountComponent,
-    HomeComponent
+    HomeComponent,
+    SideMenuComponent,
   ],
   imports: [
     BrowserModule,
@@ -25,6 +27,6 @@ import { HomeComponent } from './pages/home/home.component';
     AppRoutingModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
