@@ -1,5 +1,5 @@
 .navbar-container {
-  background: linear-gradient(0.2turn, #002D49, #2F96B8, #2F96B8, #002D49);
+  background: linear-gradient(0.2turn, #002d49, #2f96b8, #2f96b8, #002d49);
   padding: 1rem;
   box-shadow: 0 3px 10px rgb(80, 80, 80);
 }
@@ -13,28 +13,62 @@
   align-self: center;
   border: 2px solid #216e88;
   border-radius: 10px;
-  box-shadow: 0 0 10px #002D49;
+  box-shadow: 0 0 10px #002d49;
   transition: all 0.3s;
 }
 
 .menu-container:hover {
   transition: all 0.3s;
-  border-color: #2F96B8;
+  border-color: #2f96b8;
   box-shadow: 0 0 15px #002338;
+}
+
+.disp-none {
+  display: none;
 }
 
 a {
   text-decoration: none;
   margin: 0 1rem;
   list-style: none;
-  color: orange;
+  color: rgb(221, 149, 16);
   font-size: 2rem;
 }
 
-a:hover {
+.text-hover:hover {
   transition: all 0.3s;
-  text-shadow: 4px 4px 6px rgb(94, 61, 0);
-
   cursor: pointer;
   color: white;
+}
+
+.animation-smoke-btn {
+  animation: smoke-btn ease 0.4s;
+}
+
+.color-trans {
+  color: transparent;
+}
+
+/* ANIMATIONS */
+
+@keyframes smoke-btn {
+  0% {
+    text-shadow: 0 0 0px black;
+  }
+  30% {
+    text-shadow: 1px 2px 4px black;
+  }
+  50% {
+    text-shadow: -4px 1px 8px black;
+  }
+  70% {
+    text-shadow: 0px -10px 20px black;
+  }
+  90% {
+    text-shadow: 4px -20px 40px black;
+  }
+  100% {
+    color: transparent;
+    text-shadow: 0 0 128px gray;
+  }
 }
