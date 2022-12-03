@@ -1,7 +1,19 @@
 <div class="navbar-container">
   <ul class="menu-container">
-    <a routerLink=""><span class="animated-btn text-hover" (click)="handleClick('linkHome')" id="linkHome">Home</span></a>
-    <a routerLink="calculator"><span class="animated-btn text-hover" (click)="handleClick('linkCalculator')" id="linkCalculator">Calculator</span></a>
-    <a routerLink="account"><span class="animated-btn text-hover" (click)="handleClick('linkAccount')" id="linkAccount">Account</span></a>
+    <a routerLink=""
+      ><span
+        class="animated-btn text-hover"
+        (click)="handleClick('linkHome')"
+        id="linkHome"
+        >Home</span
+      ></a
+    >
+    <a
+      routerLink="/contacts"
+      class="animated-btn text=hover"
+      (click)="handleClick('linkContacts')"
+      id="linkContacts"
+      >Contacts</a
+    >
   </ul>
 </div>

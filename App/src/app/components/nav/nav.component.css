@@ -2,6 +2,9 @@
   background: linear-gradient(0.2turn, #002d49, #2f96b8, #2f96b8, #002d49);
   padding: 1rem;
   box-shadow: 0 3px 10px rgb(80, 80, 80);
+  position: absolute;
+  width: 100vw;
+  z-index: 100;
 }
 
 .menu-container {

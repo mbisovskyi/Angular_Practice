@@ -10,6 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AccountComponent } from './pages/account/account.component';
 import { HomeComponent } from './pages/home/home.component';
 import { SideMenuComponent } from './components/side-menu/side-menu.component';
+import { ContactsComponent } from './pages/contacts/contacts.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { SideMenuComponent } from './components/side-menu/side-menu.component';
     AccountComponent,
     HomeComponent,
     SideMenuComponent,
+    ContactsComponent,
   ],
   imports: [
     BrowserModule,
