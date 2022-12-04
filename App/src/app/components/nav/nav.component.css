@@ -5,6 +5,7 @@
   position: absolute;
   width: 100vw;
   z-index: 100;
+  margin-bottom: 4rem;
 }
 
 .menu-container {
@@ -24,6 +25,26 @@
   transition: all 0.3s;
   border-color: #2f96b8;
   box-shadow: 0 0 15px #002338;
+}
+
+.social-links-container {
+  position: absolute;
+  top: 6rem;
+  left: 50%;
+  translate: -50%;
+  text-align: center;
+  padding-bottom: 0.5rem;
+  border-radius: 10px;
+}
+
+.social-links-container img {
+  background: linear-gradient(0.5turn, #2f96b8, #2f96b8, #277c99);
+  padding: 0.3rem;
+  border-radius: 5px;
+}
+
+.social-links-container img:hover {
+  background: linear-gradient(0.2turn, rgb(221, 149, 16), rgb(134, 91, 12));
 }
 
 .disp-none {
