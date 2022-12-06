@@ -35,6 +35,17 @@
 @keyframes display-slide {
   0% {
     transform: translateY(-10rem);
+    width: 50%;
+  }
+  50%{
+    transform: translateY(0);
+  }
+  70%{
+    transform: translateY(-0.3rem);
+
+  }
+  90%{
+    transform: translateY(0.1rem);
   }
   100% {
     transform: translateX(0);

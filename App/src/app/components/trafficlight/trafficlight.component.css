@@ -1,0 +1,131 @@
+.trafficlight-container {
+  width: 80%;
+  height: 90vh;
+  margin: auto;
+  padding: 1% 5%;
+  background-color: rgba(173, 216, 230, 0.5);
+  border-radius: 10px;
+  padding-top: 12rem;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.trafficlight-container button {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  translate: -50%;
+}
+
+.west-container,
+.east-container {
+  height: 40%;
+  width: 40%;
+  background-color: rgba(128, 128, 128, 0.7);
+  margin: auto;
+  position: relative;
+  display: flex;
+}
+
+.west-container {
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.east-container {
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.west-container .lights-container, .east-container .lights-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.central-container {
+  width: 25%;
+}
+
+.north-container,
+.south-container,
+.empty-square {
+  background-color: rgba(128, 128, 128, 0.7);
+  height: 33%;
+  position: relative;
+}
+
+.empty-square {
+  height: 40%;
+}
+
+.lights-container {
+  width: 3rem;
+  height: 10rem;
+  background-color: orange;
+  border-radius: 5px;
+}
+
+.north-container .lights-container {
+  position: absolute;
+  height: 3em;
+  width: 10rem;
+  bottom: 1rem;
+  left: 50%;
+  translate: -50%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.south-container .lights-container {
+  position: absolute;
+  height: 3em;
+  width: 10rem;
+  top: -1.2rem;
+  left: 50%;
+  translate: -50%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.red-light {
+  height: 40px;
+  width: 40px;
+  border-radius: 100px;
+  margin: auto;
+  background-color: gray;
+  display: block;
+}
+
+.yellow-light {
+  height: 40px;
+  width: 40px;
+  border-radius: 100px;
+  margin: auto;
+  background-color: gray;
+  display: block;
+}
+
+.green-light {
+  height: 40px;
+  width: 40px;
+  border-radius: 100px;
+  margin: auto;
+  background-color: gray;
+  display: block;
+}
+
+.red-on {
+  background-color: red;
+}
+
+.yellow-on {
+  background-color: yellow;
+}
+
+.green-on {
+  background-color: green;
+}
