@@ -11,6 +11,7 @@ import { AccountComponent } from './pages/account/account.component';
 import { HomeComponent } from './pages/home/home.component';
 import { SideMenuComponent } from './components/side-menu/side-menu.component';
 import { ContactsComponent } from './pages/contacts/contacts.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { ContactsComponent } from './pages/contacts/contacts.component';
     HomeComponent,
     SideMenuComponent,
     ContactsComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

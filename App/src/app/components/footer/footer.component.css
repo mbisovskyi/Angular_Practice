@@ -1,0 +1,19 @@
+.footer-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 0 20rem;
+  background: linear-gradient(0.2turn, #002d49, #2f96b8, #002d49);
+  height: 5rem;
+}
+
+.footer-container > svg {
+  margin: 0 0.5rem;
+}
+
+svg > path {
+  fill: white;
+}
