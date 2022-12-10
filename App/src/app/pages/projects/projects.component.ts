@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-projects',
@@ -8,7 +9,8 @@ import { Component, OnInit } from '@angular/core';
 export class ProjectsComponent implements OnInit {
   constructor() {}
 
-  someFunction() {
+  //Angular way to toggle list of projects
+  toggleProjects() {
     const projectsDiv: HTMLDivElement | null =
       document.querySelector('.projects');
     const openCloseBtn: HTMLButtonElement | null =
@@ -27,5 +29,17 @@ export class ProjectsComponent implements OnInit {
     }
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    //JQuery way to toggle list of projects
+    $('button').on('click', () => {
+      $('.projects').fadeToggle(200);
+      $('button').text() == 'Close'
+        ? setTimeout(() => {
+            $('button').text('Open');
+          }, 50)
+        : setTimeout(() => {
+            $('button').text('Close');
+          }, 50);
+    });
+  }
 }
