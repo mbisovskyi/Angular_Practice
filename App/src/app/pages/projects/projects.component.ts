@@ -8,7 +8,6 @@ import projectsData from './projectsData';
   styleUrls: ['./projects.component.css'],
 })
 export class ProjectsComponent implements OnInit {
-
   //VARIABLES
   //Projects Data Variables
   projectIndex: number = 0;
@@ -41,6 +40,8 @@ export class ProjectsComponent implements OnInit {
     }, timeOutVal + 110);
   }
 
+
+
   //Private method to get next project index and if index is bigger than length of list of projects :> (index = 0);
   private nextProject() {
     if (this.projectIndex >= projectsData.length - 1) {
@@ -59,9 +60,21 @@ export class ProjectsComponent implements OnInit {
     }
   }
 
+  //Private method to get a random index of list of projects
+  private randomProjectIndex() {
+    let randomIndex = Math.floor(Math.random() * (projectsData.length - 1));
+    console.log(
+      `Current index: ${this.projectIndex}; Random index: ${randomIndex}`
+    );
+    randomIndex == this.projectIndex
+      ? this.randomProjectIndex()
+      : (this.projectIndex = randomIndex);
+  }
+
   //INITIALIZER
   ngOnInit(): void {
-    //JQuery way to toggle list of projects
+
+    //JQuery to toggle list of projects
     $('.open-close-btn').on('click', () => {
       $('.projects').fadeToggle(200);
       $('.open-close-btn').text() == 'Close'
@@ -73,14 +86,22 @@ export class ProjectsComponent implements OnInit {
           }, 50);
     });
 
+    //Handler of click event on button "Next"
     $('#next-project-btn').on('click', () => {
       this.nextProject();
       this.jQueryImageInOutAnimation($('#project-image'));
     });
 
+    //Handler of click event on button "Previous"
     $('#prev-project-btn').on('click', () => {
       this.previousProject();
       this.jQueryImageInOutAnimation($('#project-image'));
     });
+
+    //Automatically changing image of a project with interval.
+    setInterval(() => {
+      this.randomProjectIndex();
+      this.jQueryImageInOutAnimation($('#project-image'));
+    }, 8000);
   }
 }
