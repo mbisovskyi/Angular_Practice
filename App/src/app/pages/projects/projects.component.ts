@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery';
+import projectsData from './projectsData';
 
 @Component({
   selector: 'app-projects',
@@ -7,39 +8,79 @@ import * as $ from 'jquery';
   styleUrls: ['./projects.component.css'],
 })
 export class ProjectsComponent implements OnInit {
+
+  //VARIABLES
+  //Projects Data Variables
+  projectIndex: number = 0;
+  projectImage = projectsData[this.projectIndex].src;
+  projectAlt = projectsData[this.projectIndex].alt;
+
+  //CONSTRUCTOR
   constructor() {}
 
-  //Angular way to toggle list of projects
-  toggleProjects() {
-    const projectsDiv: HTMLDivElement | null =
-      document.querySelector('.projects');
-    const openCloseBtn: HTMLButtonElement | null =
-      document.querySelector('.open-close-btn');
+  //METHODS
+  /** Using jQuery to fadeOut and then fadeIn jQuery object. Object should contain next parameters:
+   * @$image jQuery object to animate (HTML class, id)
+   * @src string path of image text;
+   * @alt string alternative text;
+   * @fadeTimeVal (default: 300) - Time in milliseconds to fadeOut;
+   * @timeOutVal (default: 200) - Time to change image properties for smoother animation;
+   */
+  jQueryImageInOutAnimation(
+    $image: JQuery,
+    fadeTimeVal: number = 300,
+    timeOutVal: number = fadeTimeVal - 100
+  ) {
+    $($image).fadeOut(fadeTimeVal);
+    setTimeout(() => {
+      $($image).fadeIn(fadeTimeVal);
+    }, timeOutVal);
+    setTimeout(() => {
+      $($image).attr('src', projectsData[this.projectIndex].src);
+      $($image).attr('alt', projectsData[this.projectIndex].alt);
+    }, timeOutVal + 110);
+  }
 
-    if (projectsDiv) {
-      projectsDiv.style.display == 'none'
-        ? (projectsDiv.style.display = 'block')
-        : (projectsDiv.style.display = 'none');
-    }
-
-    if (openCloseBtn) {
-      openCloseBtn.textContent == 'Close'
-        ? (openCloseBtn.textContent = 'Open')
-        : (openCloseBtn.textContent = 'Close');
+  //Private method to get next project index and if index is bigger than length of list of projects :> (index = 0);
+  private nextProject() {
+    if (this.projectIndex >= projectsData.length - 1) {
+      this.projectIndex = 0;
+    } else {
+      this.projectIndex += 1;
     }
   }
 
+  //Private method to get previous project index and if index is lower than 0 :> (index = length of list of projects - 1);
+  private previousProject() {
+    if (this.projectIndex <= 0) {
+      this.projectIndex = projectsData.length - 1;
+    } else {
+      this.projectIndex -= 1;
+    }
+  }
+
+  //INITIALIZER
   ngOnInit(): void {
     //JQuery way to toggle list of projects
-    $('button').on('click', () => {
+    $('.open-close-btn').on('click', () => {
       $('.projects').fadeToggle(200);
-      $('button').text() == 'Close'
+      $('.open-close-btn').text() == 'Close'
         ? setTimeout(() => {
-            $('button').text('Open');
+            $('.open-close-btn').text('Open');
           }, 50)
         : setTimeout(() => {
-            $('button').text('Close');
+            $('.open-close-btn').text('Close');
           }, 50);
+    });
+
+    $('#next-project-btn').on('click', () => {
+      this.nextProject();
+      this.jQueryImageInOutAnimation($('#project-image'));
+    });
+
+    $('#prev-project-btn').on('click', () => {
+      this.previousProject();
+      this.jQueryImageInOutAnimation($('#project-image'));
     });
   }
 }

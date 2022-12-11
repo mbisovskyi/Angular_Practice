@@ -11,13 +11,13 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     const $animationBtn = $('#animation-btn');
     $animationBtn.on('click', () => {
-      $('.image-container').toggleClass('animation-wiggle');
-      if ($animationBtn.text() == 'Off') {
-        $animationBtn.text('On');
-        $animationBtn.css('color', 'green');
+      setTimeout(() => {
+        $('.image-container').toggleClass('animation-wiggle');
+      }, 100);
+      if ($('.image-container').hasClass('animation-wiggle')) {
+        $('.pseudo-container').animate({ left: '0%' }, 200);
       } else {
-        $animationBtn.text('Off');
-        $animationBtn.css('color', 'red');
+        $('.pseudo-container').animate({ left: '50%' }, 200);
       }
     });
   }

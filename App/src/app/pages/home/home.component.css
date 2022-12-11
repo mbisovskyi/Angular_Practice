@@ -50,9 +50,37 @@
 }
 
 #animation-btn {
+  position: relative;
   border: none;
+  border-radius: 10px;
+  overflow: hidden;
   padding: 0 0.5rem;
+  width: 5rem;
+}
+
+.statuses {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  font-size: larger;
+}
+
+#on-status {
   color: green;
+}
+
+#off-status {
+  color: rgb(255, 0, 0);
+}
+
+.pseudo-container {
+  height: 100%;
+  width: 50%;
+  background-color: rgba(15, 93, 141, 0.8);
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0%;
 }
 
 .story-container h3 {

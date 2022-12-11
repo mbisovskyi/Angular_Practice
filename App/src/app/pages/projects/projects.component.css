@@ -3,17 +3,25 @@
   top: 10rem;
   left: 50%;
   translate: -50%;
-  width: 10%;
+  width: 60%;
+  height: 50%;
   margin: auto;
   text-align: center;
 }
 
 .projects {
-  border: 1px solid white;
-  border-radius: 10px;
   margin: 1rem;
   margin-bottom: 1rem;
-  padding-top: 1rem;
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+.projects > img {
+  overflow: hidden;
+  width: 95%;
+  height: 95%;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgb(56, 56, 56);
 }
 
 button {
