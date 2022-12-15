@@ -1,8 +1,50 @@
 <div class="projects-container">
-  <button class="open-close-btn">Close</button>
+  <svg
+    id="toggle-projects-btn"
+    xmlns="http://www.w3.org/2000/svg"
+    width="35"
+    height="35"
+    viewBox="0 0 20 20"
+    fill="rgb(221, 149, 16)"
+  >
+    <path
+      d="M10,20A10,10,0,1,0,0,10,10,10,0,0,0,10,20ZM8.711,4.3l5.7,5.766L8.7,15.711,7.3,14.289l4.289-4.242L7.289,5.7Z"
+    />
+  </svg>
   <div class="projects">
     <img id="project-image" src="{{ projectImage }}" />
+    <div class="project-selectors">
+      <svg
+        id="prev-project-btn"
+        xmlns="http://www.w3.org/2000/svg"
+        width="35"
+        height="35"
+        viewBox="0 0 20 20"
+        fill="rgb(221, 149, 16)"
+      >
+        <path
+          d="M10,20A10,10,0,1,0,0,10,10,10,0,0,0,10,20ZM8.711,4.3l5.7,5.766L8.7,15.711,7.3,14.289l4.289-4.242L7.289,5.7Z"
+        />
+      </svg>
+      <div class="slideshow-controller">
+        <span style="color: 'white'; font-size: 1.5rem">Slideshow: </span
+        ><button id="slideshow-btn">Off</button>
+      </div>
+      <svg
+        id="next-project-btn"
+        xmlns="http://www.w3.org/2000/svg"
+        width="35"
+        height="35"
+        viewBox="0 0 20 20"
+        fill="rgb(221, 149, 16)"
+      >
+        <path
+          d="M10,20A10,10,0,1,0,0,10,10,10,0,0,0,10,20ZM8.711,4.3l5.7,5.766L8.7,15.711,7.3,14.289l4.289-4.242L7.289,5.7Z"
+        />
+      </svg>
+    </div>
+    <div class="description">
+      <p>Description!</p>
+    </div>
   </div>
-  <button id="prev-project-btn">Previous</button>
-  <button id="next-project-btn">Next</button>
 </div>

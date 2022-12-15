@@ -10,9 +10,10 @@ import projectsData from './projectsData';
 export class ProjectsComponent implements OnInit {
   //VARIABLES
   //Projects Data Variables
-  projectIndex: number = 0;
+  projectIndex: number = Math.floor(Math.random() * (projectsData.length - 1));
   projectImage = projectsData[this.projectIndex].src;
   projectAlt = projectsData[this.projectIndex].alt;
+  intervalId: number = 0;
 
   //CONSTRUCTOR
   constructor() {}
@@ -40,8 +41,6 @@ export class ProjectsComponent implements OnInit {
     }, timeOutVal + 110);
   }
 
-
-
   //Private method to get next project index and if index is bigger than length of list of projects :> (index = 0);
   private nextProject() {
     if (this.projectIndex >= projectsData.length - 1) {
@@ -63,45 +62,72 @@ export class ProjectsComponent implements OnInit {
   //Private method to get a random index of list of projects
   private randomProjectIndex() {
     let randomIndex = Math.floor(Math.random() * (projectsData.length - 1));
-    console.log(
-      `Current index: ${this.projectIndex}; Random index: ${randomIndex}`
-    );
     randomIndex == this.projectIndex
       ? this.randomProjectIndex()
       : (this.projectIndex = randomIndex);
   }
 
+  //Start a slideshow whenever a flag is true;
+  startSlideshow(flag: boolean) {
+    this.intervalId = window.setInterval(() => {
+      this.randomProjectIndex();
+      this.jQueryImageInOutAnimation($('#project-image'));
+    }, 4000);
+    if (!flag) {
+      window.clearInterval(this.intervalId);
+    }
+  }
+
   //INITIALIZER
   ngOnInit(): void {
-
     //JQuery to toggle list of projects
-    $('.open-close-btn').on('click', () => {
+    $('#toggle-projects-btn').on('click', () => {
       $('.projects').fadeToggle(200);
-      $('.open-close-btn').text() == 'Close'
-        ? setTimeout(() => {
-            $('.open-close-btn').text('Open');
-          }, 50)
-        : setTimeout(() => {
-            $('.open-close-btn').text('Close');
-          }, 50);
+      $('#toggle-projects-btn').addClass('animation-click-smoke');
+      setTimeout(() => {
+        $('#toggle-projects-btn').removeClass('animation-click-smoke');
+      }, 300)
+      $('#toggle-projects-btn').toggleClass('rotate-90deg');
+      if ($('#toggle-projects-btn').hasClass('rotate-90deg')) {
+        $('#toggle-projects-btn').css({ transform: 'rotate(90deg)' });
+      } else {$('#toggle-projects-btn').css({ transform: 'rotate(-90deg)' });}
     });
 
     //Handler of click event on button "Next"
     $('#next-project-btn').on('click', () => {
       this.nextProject();
       this.jQueryImageInOutAnimation($('#project-image'));
+      clearInterval(this.intervalId);
+      $('#slideshow-btn').text('Off');
+      $('#next-project-btn').addClass('animation-click-smoke');
+      setTimeout(() => {
+        $('#next-project-btn').removeClass('animation-click-smoke');
+      }, 200);
     });
 
     //Handler of click event on button "Previous"
     $('#prev-project-btn').on('click', () => {
       this.previousProject();
       this.jQueryImageInOutAnimation($('#project-image'));
+      clearInterval(this.intervalId);
+      $('#slideshow-btn').text('Off');
+      $('#prev-project-btn').addClass('animation-click-smoke');
+      setTimeout(() => {
+        $('#prev-project-btn').removeClass('animation-click-smoke');
+      }, 200);
     });
 
-    //Automatically changing image of a project with interval.
-    setInterval(() => {
-      this.randomProjectIndex();
-      this.jQueryImageInOutAnimation($('#project-image'));
-    }, 8000);
+    //Handler of button click event to toggle slideshow status
+    $('#slideshow-btn').on('click', () => {
+      if ($('#slideshow-btn').text() == 'On') {
+        clearInterval(this.intervalId);
+        $('#slideshow-btn').css({ borderColor: 'red', color: 'red' });
+        $('#slideshow-btn').text('Off');
+      } else {
+        this.startSlideshow(true);
+        $('#slideshow-btn').css({ borderColor: 'green', color: 'green' });
+        $('#slideshow-btn').text('On');
+      }
+    });
   }
 }

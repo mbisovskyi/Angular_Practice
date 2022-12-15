@@ -9,9 +9,27 @@
   text-align: center;
 }
 
+#toggle-projects-btn {
+  transform: rotate(-90deg);
+  border: 2px solid white;
+  border-radius: 50%;
+}
+
+#toggle-projects-btn:hover {
+  transition: all 0.3s;
+  cursor: pointer;
+  border-color: rgb(221, 149, 16);
+  fill: white;
+}
+
+.rotate-90deg {
+  transform: rotate(90deg);
+}
+
 .projects {
   margin: 1rem;
   margin-bottom: 1rem;
+  margin-top: 0;
   padding: 1rem;
   border-radius: 10px;
 }
@@ -20,12 +38,73 @@
   overflow: hidden;
   width: 95%;
   height: 95%;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgb(56, 56, 56);
+  border-radius: 35px;
+  box-shadow: inset 0 0 10rem #0f5d8d;
+  padding: 1rem;
 }
 
-button {
-  padding: 0 0.2rem;
-  border-color: white;
+.project-selectors {
+  margin-top: 1rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#prev-project-btn {
+  border: 2px solid white;
+  border-radius: 50%;
+  transform: rotate(180deg);
+}
+
+#next-project-btn {
+  border: 2px solid white;
+  border-radius: 50%;
+}
+
+#prev-project-btn:hover,
+#next-project-btn:hover {
+  cursor: pointer;
+  transition: all 0.3s;
+  fill: white;
+  border-color: rgb(221, 149, 16);
+}
+
+.slideshow-controller {
+  width: 40%;
+}
+
+#slideshow-btn {
+  padding: 0 0.5rem;
+  font-size: larger;
+  color: rgb(255, 0, 0);
+  background-color: rgba(255, 255, 255, 0.6);
+  border: 2px solid red;
   border-radius: 5px;
+}
+
+/* ANIMATED CLASSES */
+
+.animation-click-smoke {
+  border-radius: 50%;
+  animation: click-smoke ease 0.5s;
+  padding: 0.05rem;
+}
+
+/* ANIMATIONS */
+@keyframes click-smoke {
+  0% {
+    box-shadow: 0 0 1px rgb(221, 149, 16);
+  }
+  25% {
+    box-shadow: 0 0 25px rgb(221, 149, 16);
+  }
+  50% {
+    box-shadow: 0 0 55px rgb(221, 149, 16);
+  }
+  75% {
+    box-shadow: 0 0 80px rgb(221, 149, 16);
+  }
+  100% {
+    box-shadow: 0 0 100px rgb(221, 149, 16);
+  }
 }
